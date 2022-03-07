@@ -68,7 +68,7 @@
                                 <a title="My Account" href="{{ route('admin.dashboard')}}">My Account ({{Auth::user()->name}}) <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="submenu curency">
                                   <li class="menu-item">
-                                    <a title="Dashboard" href="{{ route('logout')}}">
+                                    <a title="Dashboard" href="{{ route('user.dashboard')}}">
                                   </li>
                                   <li class="menu-item">
                                       <a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>

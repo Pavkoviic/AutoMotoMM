@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Srt;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
@@ -17,7 +18,7 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $product_name = $this->faler->unique()->words($nb=4,$asText=true);
+        $product_name = $this->faker->unique()->words($nb=4,$asText=true);
         $slug = Str::slug($product_name);
         return [
             'name' => $product_name,
@@ -29,7 +30,7 @@ class ProductFactory extends Factory
             'stock_status' => 'instock',
             'quantity' => $this->faker->numberBetween(1,200),
             'image' => 'digital_' . $this->faker->unique()->numberBetween(1,22).'.jpg',
-            'category_id' => $this->faker->numberBetween(1,5)
+            'category_id' => $this->faker->numberBetween(73,90)
 
         ];
     }

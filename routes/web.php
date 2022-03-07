@@ -6,8 +6,11 @@ use App\Http\Livewire\ContactUsComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminProductComponent;
+use App\Http\Livewire\Admin\AdminAddProductComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +40,8 @@ Route::get('/cart', CartComponent::class);
 
 Route::get('/checkout', CheckoutComponent::class);
 
+Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
+
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('dashboard');
 //})->name('dashboard');
@@ -49,5 +54,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 //For Admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
+    Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
 
 });
