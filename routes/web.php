@@ -11,6 +11,7 @@ use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::get('/',HomeComponent::class);
 
 Route::get('/aboutus',AboutUsComponent::class);
 
-Route::get('/contactus', ContactUsComponent::class);
+Route::get('/contactus', ContactUsComponent::class)->name('contact');
 
 Route::get('/shop', ShopComponent::class);
 
@@ -56,5 +57,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
+    Route::get('/admin/contactus', AdminContactComponent::class)->name('admin.contact');
+ 
 
 });

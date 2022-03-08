@@ -64,37 +64,37 @@
                   @if(Route::has('login'))
                         @auth
                             @if(Auth::user()->utype === 'ADM')
-                              <li class="menu-item menu-item-has-children parent">
-                                <a title="My Account" href="{{ route('admin.dashboard')}}">My Account ({{Auth::user()->name}}) <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="submenu curency">
-                                  <li class="menu-item">
-                                    <a title="Dashboard" href="{{ route('user.dashboard')}}">
-                                  </li>
-                                  <li class="menu-item">
-                                      <a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
-                                  </li>
+                            <div class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" href="{{ route('admin.dashboard')}}" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                  My Account ({{Auth::user()->name}})
+                                </a>
+
+                                <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="{{ route('admin.dashboard')}}">Dashboard</a>
+                                  <a class="dropdown-item" href="{{ route('admin.products')}}">Svi Proizvodi</a>
+                                  <a class="dropdown-item" href="{{ route('admin.contact')}}">Kontaktirajte nas poruke</a>
+                                  <a class="dropdown-item" href="{{ route('logout')}}"onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
                                   <form id="logout-form" method="POST" action="{{ route('logout')}}">
                                     @csrf
                                   </form>
-                                </ul>
-                              </li>
+                                </div>
+                              </div>  
                                 
                             @else
             
-                              <li class="menu-item menu-item-has-children parent">
-                                <a title="My Account" href="{{ route('user.dashboard')}}">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="submenu curency">
-                                    <li class="menu-item">
-                                      <a title="Dashboard" href="{{ route('user.dashboard')}}">Dashboard</a>
-                                    </li>
-                                    <li class="menu-item">
-                                      <a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
-                                    </li>
+                            <div class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" href="{{ route('admin.dashboard')}}" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                                  My Account ({{Auth::user()->name}})
+                                </a>
+
+                                <div class="dropdown-menu"  aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="{{ route('user.dashboard')}}">Dashboard</a>
+                                  <a class="dropdown-item" href="{{ route('logout')}}"onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
                                   <form id="logout-form" method="POST" action="{{ route('logout')}}">
-                                      @csrf
+                                    @csrf
                                   </form>
-                                  </ul>
-                              </li>
+                                </div>
+                              </div>  
                                   
                             @endif
                             
@@ -131,7 +131,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/index.js') }}"></script>
-    @livewireScripts
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    @livewireScripts
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 </body>
 </html>

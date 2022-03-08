@@ -12,13 +12,12 @@
                 </div>
                 <div class="clearfix">
                     <label class="pull-left checkbox-inline" name="remember"><input type="checkbox"> Zapamti me</label>
-                    <a href="{{route('password.request')}}" class="pull-right">Zaboravili ste lozinku?</a>
                 </div> 
                 <div class="form-group mb-2 mt-4">
                     <button type="submit" class="btn btn-dark btn-block">Prijavi se</button>
                 </div>
                 <div>
-                    <p class="text-center "><a href="{{route('register')}}">Napravite račun</a></p>
+                    <p class="text-center "><a href="{{route('register')}}" class="link-dark">Napravite račun</a></p>
                 </div>        
             </form>
     </div>
